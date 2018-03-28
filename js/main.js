@@ -4,12 +4,22 @@ var blackjack = new BlackjackGame;
 $(document).ready(function() {
   $("#intro").addClass('intro-container')
   $('#victory').addClass('intro');
+<<<<<<< HEAD
   $('#victory').html('<h1>Press Deal To Start</h1>');
+=======
+  $('#victory').html('<h1>Place Your Bet and Press Deal To Start</h1>');
+>>>>>>> master
   
   //Initialize Bet Buttons to Adjust Current Bet Value
   changeBet();
   //Display Bet Value and Total Value
   displayBets();
+<<<<<<< HEAD
+=======
+
+  //Blocks Hit and Stand Button At Beginning
+  buttonsStartDeal();
+>>>>>>> master
 });
 
 
@@ -54,27 +64,48 @@ function showHiddenDealerCard(){
 //Display Winner of Hand
 function displayWinner(person, string){
   if(person === 'push'){
+<<<<<<< HEAD
     $("#victory").text('Push!');
+=======
+    $("#victory").text('PUSH!');
+>>>>>>> master
     //Adds currentBet to Total
     blackjack.checkBet(person, string)
   }
   else if(string === "blackjack"){
+<<<<<<< HEAD
     $("#victory").text(person.name + " has Blackjack!")
+=======
+    $("#victory").text(person.name.toUpperCase() + " HAS BLACKJACK!")
+>>>>>>> master
     //
     blackjack.checkBet(person, string)
   }
   else if(string==="bust"){
+<<<<<<< HEAD
     $("#victory").text(person.name + " busts!");
   }
   else{
   $("#victory").text(person.name + " wins!");
+=======
+    $("#victory").text(person.name.toUpperCase() + " BUSTS!");
+  }
+  else{
+  $("#victory").text(person.name.toUpperCase() + " WINS!");
+>>>>>>> master
   //Adds current 
   blackjack.checkBet(person, string)
 }
 
+<<<<<<< HEAD
  
   //Block Hit and Stand Buttons, Unblock Deal Button
   buttonsStartDeal();
+=======
+  buttonsStartDeal();
+  //Block Hit and Stand Buttons, Unblock Deal Button
+  endGame();
+>>>>>>> master
 }
 
 //Make html for each each to be displayed. Person = Dealer Or Player
@@ -127,7 +158,11 @@ function resetCards(){
   $('#victory').text("")
 }
 
+<<<<<<< HEAD
 //Unblock Deal Button, Block Hit and Stand Buttons
+=======
+//Unblock Deal Button and Bet Buttons, Block Hit and Stand Buttons
+>>>>>>> master
 function buttonsStartDeal(){
   $('#hit-button').addClass('blocked');
   $('#stand-button').addClass('blocked');
@@ -136,7 +171,11 @@ function buttonsStartDeal(){
   $('#minus-five-button').removeClass('blocked');
 }
 
+<<<<<<< HEAD
 //Block Deal Button, Unblock Hit and Stand buttons
+=======
+//Block Deal Button and Bet Buttons, Unblock Hit and Stand buttons
+>>>>>>> master
 function buttonsAfterDeal(){
   $('#hit-button').removeClass('blocked');
   $('#stand-button').removeClass('blocked');
@@ -145,5 +184,22 @@ function buttonsAfterDeal(){
   $('#minus-five-button').addClass('blocked');
 }
 
+<<<<<<< HEAD
 
+=======
+function buttonsEnd(){
+  $('#deal-button').addClass('blocked');
+  $('#plus-five-button').addClass('blocked');
+  $('#minus-five-button').addClass('blocked')
+}
+//Ends Game if Player Has $0
+function endGame(){
+  if(blackjack.player.total < 5){
+    $('#victory').text('GAME OVER')
+    buttonsEnd();
+    // console.log('yes!')
+  }
+
+}
+>>>>>>> master
 

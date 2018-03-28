@@ -68,7 +68,11 @@ BlackjackGame.prototype.deal = function(){
   this.makeDeck();
   
   //Deal Two Cards One at a Time
+<<<<<<< HEAD
   
+=======
+  var that = this;
+>>>>>>> master
   this.dealACard(this.player);
   this.dealACard(this.dealer);
   this.dealACard(this.player);
@@ -80,8 +84,12 @@ BlackjackGame.prototype.deal = function(){
 
   //Check Player and Dealer Hands for Blackjack. Respond Accordingly
   this.checkForBlackjack();
+<<<<<<< HEAD
   console.log(this.player.sum, this.dealer.sum)
 ;
+=======
+  // console.log(this.player.sum, this.dealer.sum);
+>>>>>>> master
 }
 
 //Function for Dealing a Card. Who=Player or Dealer. Cards = # of Cards to deal
@@ -94,7 +102,11 @@ BlackjackGame.prototype.dealACard= function(person){
   //Add value of Card to Sum
   person.sum += this.deck[index].value;
 
+<<<<<<< HEAD
   //Add Values to Aces Array to Calculature Sum With Ace
+=======
+  //Add Values to Aces Array to Calculate Sum With Ace
+>>>>>>> master
   this.addValuesArray(person, index);
   
   //Adjusts Sum For Aces
@@ -166,11 +178,17 @@ BlackjackGame.prototype.checkForBust = function(person){
  
    if(person = this.dealer && this.dealer.sum > 21)
   {
+<<<<<<< HEAD
+=======
+     //Add Bet To Player
+    this.checkBet(this.player)
+>>>>>>> master
     // Display Dealer Busts
     displayWinner(this.dealer, "bust")
     
     //Show hidden Dealer Card
     showHiddenDealerCard();
+<<<<<<< HEAD
 
     //Add Bet To Player
     this.checkBet(this.player)
@@ -178,16 +196,31 @@ BlackjackGame.prototype.checkForBust = function(person){
   //If Player Busts, Dealer Wins  - && this.player.sumLowAce > 21
   else if(person = this.player && this.player.sum > 21){
      //Display Player Busts
+=======
+  }
+  //If Player Busts, Dealer Wins  - && this.player.sumLowAce > 21
+  else if(person = this.player && this.player.sum > 21){
+    
+     //Subtract Bet From Player
+     this.checkBet(this.dealer) 
+    
+    //Display Player Busts
+>>>>>>> master
     displayWinner(this.player, "bust")
     
     //Show hidden Dealer Card
      showHiddenDealerCard();
 
+<<<<<<< HEAD
      //Subtract Bet From Player
      this.checkBet(this.dealer)
   }
 
   
+=======
+     displaySums();
+  }
+>>>>>>> master
 }
 
 //Initiated by Stand Button
@@ -210,7 +243,11 @@ BlackjackGame.prototype.compareSums = function(){
   console.log(this.dealer.sum)
 }
 
+<<<<<<< HEAD
 //Add to Current Bet
+=======
+//Add to Current Bet If Player Has At Least $5
+>>>>>>> master
 BlackjackGame.prototype.addBet = function(dollars){
 	if( this.player.currentBet + dollars <= this.player.total){
   this.player.currentBet += dollars;
@@ -257,16 +294,33 @@ BlackjackGame.prototype.subtractBet = function(dollars){
     
  //Close Bets, Attached to Deal Button
 BlackjackGame.prototype.initializeBet = function(){
+<<<<<<< HEAD
       if(this.player.total > 0){
       this.player.total -= this.player.currentBet;
         displayBets();
       }
+=======
+      if(this.player.total > 0 && this.player.currentBet <= this.player.total){
+      this.player.total -= this.player.currentBet;
+        displayBets();
+      }
+      // Adjusts Bet to Max if You Try and Bet Over
+      else{
+        this.player.currentBet = this.player.total 
+        this.player.total -= this.player.currentBet;
+        displayBets();
+      }
+>>>>>>> master
   }
 
   
 BlackjackGame.prototype.addValuesArray = function(who, number){
+<<<<<<< HEAD
             who.aces.push(this.deck[number].value)
      
+=======
+            who.aces.push(this.deck[number].value)   
+>>>>>>> master
 }
 
 //Determines What Value of an Ace Should Be and Adjusts Appropriately
@@ -280,13 +334,20 @@ BlackjackGame.prototype.aceLogic = function(person){
             person.aces[person.aces.indexOf(11)] = 1;
             var lowTotal =person.aces.reduce(function(total, current){
               return total + current;
+<<<<<<< HEAD
           })
+=======
+          });
+>>>>>>> master
             person.sum = lowTotal
           }
       }
     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 //Reset Sums and Cards for New Hand
 BlackjackGame.prototype.reset = function(){
   this.player.sum = 0;
@@ -300,6 +361,10 @@ BlackjackGame.prototype.reset = function(){
 
   //From main.js, Reset Cards on Display to Empty to Prepare For Next Deal
   resetCards();
+<<<<<<< HEAD
+=======
+  
+>>>>>>> master
 }
 
 
